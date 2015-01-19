@@ -1,0 +1,1 @@
+<div id="alert" class="alert [CSS]">[MESSAGE]</div>
