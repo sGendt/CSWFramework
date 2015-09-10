@@ -20,6 +20,11 @@ abstract class CswString
 		return $upperCases;
 	}
 
+	static function getFirstChar($string)
+	{
+		return substr($string, 0, 1); 
+	}
+
 	static function d($string)
 	{
 		CswString::p('<pre>', true);
@@ -83,6 +88,15 @@ abstract class CswString
 		);
 		return strtolower(str_replace($find, $replace, $string));
 	}
+
+	static function FormateAsciiTo7bits($string)
+	{
+		$find = array('-','\\','`','¢','¦','©','ª','«','¬','®','¯','°','±','²','³','´','µ','¶','·','¸','¹','º','»','¼','½','¾','À','Á','Â','Ã','È','Ê','Ë','Ì','Í','Î','Ï','Ð','Ò','Ó','Ô','Õ','×','Ù','Ú','Û','Ý','Þ','á','â','ã','ç','ê','ë','í','î','ï','ð','ó','ô','õ','÷','ú','û','ý','þ','ÿ');
+		$replace = array(' ','/','\'','','|','','','"','','','','','','','','\'','u','','','','','','"','','','','A','A','A','A','E','E','E','I','I','I','I','D','O','O','O','O','','U','U','U','Y','Y','a','a','a','c','e','e','i','i','i','o','o','o','o','/','u','u','y','y','y');
+
+		return str_replace($find, $replace, $string);
+	}
+
 
 	static function replaceDashBySpace($string)
 	{
